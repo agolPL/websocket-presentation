@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+	var webSocket;
+	function setupWebSocket() {
+		if ("WebSocket" in window) {
+			webSocket = new WebSocket("ws://localhost:8080/websocket/echo");
+			webSocket.onmessage = function(message) {
+				var messageData = message.data;
+				document.getElementById('messageText').innerHTML = messageData;
+			};
+		} else {
+			alert("WebSocket NOT supported by your Browser!");
+		}
+	}
+	function sendMessage() {
+		message = document.getElementById('messageInput').value;
+		webSocket.send(message);
+	}
+</script>
+</head>
+<body onload="setupWebSocket()">
+	<button onclick="sendMessage()">Send</button>
+	<input id="messageInput" type="text" />
+	<label id="messageText"></label>
+</body>
+</html>
