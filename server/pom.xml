@@ -29,6 +29,12 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>pl.agol.jee.websocket</groupId>
+			<artifactId>api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 

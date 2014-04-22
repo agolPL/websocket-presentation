@@ -7,4 +7,37 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>client</artifactId>
+
+	<properties>
+		<undertow.version>1.0.0.CR1</undertow.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-core</artifactId>
+			<version>${undertow.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-websockets-jsr</artifactId>
+			<version>${undertow.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>pl.agol.jee.websocket</groupId>
+			<artifactId>api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+	</dependencies>
+
 </project>
