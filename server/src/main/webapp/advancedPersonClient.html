@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+	var webSocket;
+	function setupWebSocket() {
+		if ("WebSocket" in window) {
+			webSocket = new WebSocket("ws://localhost:8080/websocket/advancedPerson");
+			webSocket.onmessage = function(message) {
+				var messageData = message.data;
+				document.getElementById('messageText').innerHTML = messageData;
+			};
+		} else {
+			alert("WebSocket NOT supported by your Browser!");
+		}
+	}
+	function sendMessage() {
+		webSocket.send("any message");
+	}
+</script>
+</head>
+<body onload="setupWebSocket()">
+	<button onclick="sendMessage()">Get JSON Person</button>
+	<label id="messageText"></label>
+</body>
+</html>
